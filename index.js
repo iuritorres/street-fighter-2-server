@@ -14,9 +14,7 @@ const io = new Server(server, {
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(
-    new URL('https://iuritorres.github.io/street-fighter-2-javascript/')
-  );
+  res.sendStatus(200).send({ message: 'ok' });
 });
 
 // SOCKET
