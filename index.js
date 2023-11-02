@@ -1,10 +1,13 @@
-import { createServer } from 'http';
+import express from 'express';
+import { createServer } from 'node:http';
 import { Server } from 'socket.io';
 
 // Configs
 const PORT = 3000;
-const httpServer = createServer();
-const io = new Server(httpServer, {
+
+const app = express();
+const server = createServer(app);
+const io = new Server(server, {
   cors: {
     origin: '*',
   },
@@ -47,6 +50,6 @@ io.on('connection', (socket) => {
 });
 
 // Start Server
-httpServer.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server started. Listening on PORT: ${PORT}`);
 });
