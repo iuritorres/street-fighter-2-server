@@ -14,7 +14,7 @@ const io = new Server(server, {
 });
 
 app.get('/', (req, res) => {
-  res.sendStatus(200).send({ message: 'ok' });
+  res.send({ message: 'ok' });
 });
 
 // SOCKET
