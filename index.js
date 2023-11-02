@@ -3,7 +3,7 @@ import { createServer } from 'node:http';
 import { Server } from 'socket.io';
 
 // Configs
-const PORT = 3000;
+const PORT = 443;
 
 const app = express();
 const server = createServer(app);
@@ -23,7 +23,6 @@ app.get('/', (req, res) => {
 const playersData = {};
 
 io.on('connection', (socket) => {
-  console.log('DASDASDASDASDASDASDASDASDASDAS');
   socket.on('initialData', (playersDataFromClient) => {
     socket.id = 'Ryu' ? io.engine.clientsCount == 1 : 'Ken';
     switch (io.engine.clientsCount) {
